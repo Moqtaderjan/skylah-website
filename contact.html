@@ -85,77 +85,75 @@
           </div>
         </div>
 
-        <!-- Contact Form with hCaptcha -->
-        <div class="contact__form-container">
-          <form id="contactForm" class="contact-form">
-            <!-- Hidden metadata -->
-            <input type="hidden" name="subject" value="New Contact Form Submission - Skylah LLC">
-            <input type="hidden" name="from_name" value="Skylah LLC Website">
-            <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+      <!-- Contact Form with hCaptcha -->
+      <div class="contact__form-container">
+        <form id="contactForm" class="contact-form">
+          <!-- Hidden metadata -->
+          <input type="hidden" name="subject" value="New Contact Form Submission - Skylah LLC">
+          <input type="hidden" name="from_name" value="Skylah LLC Website">
 
-            <!-- Form Fields -->
-            <div class="form-group">
-              <label for="name">Full Name *</label>
-              <input type="text" id="name" name="name" required placeholder="Enter your full name">
-              <div class="error-message" id="nameError"></div>
-            </div>
+          <!-- Form Fields -->
+          <div class="form-group">
+            <label for="name">Full Name *</label>
+            <input type="text" id="name" name="name" required placeholder="Enter your full name">
+            <div class="error-message" id="nameError"></div>
+          </div>
 
-            <div class="form-group">
-              <label for="email">Email Address *</label>
-              <input type="email" id="email" name="email" required placeholder="Enter your email address">
-              <div class="error-message" id="emailError"></div>
-            </div>
+          <div class="form-group">
+            <label for="email">Email Address *</label>
+            <input type="email" id="email" name="email" required placeholder="Enter your email address">
+            <div class="error-message" id="emailError"></div>
+          </div>
 
-            <div class="form-group">
-              <label for="company">Company Name (Optional)</label>
-              <input type="text" id="company" name="company" placeholder="Your company name">
-            </div>
+          <div class="form-group">
+            <label for="company">Company Name (Optional)</label>
+            <input type="text" id="company" name="company" placeholder="Your company name">
+          </div>
 
-            <div class="form-group">
-              <label for="phone">Phone Number</label>
-              <input type="tel" id="phone" name="phone" placeholder="Your phone number">
-            </div>
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" placeholder="Your phone number">
+          </div>
 
-            <div class="form-group">
-              <label for="inquiry">Inquiry Type *</label>
-              <select id="inquiry" name="inquiry" required>
-                <option value="">Select an option</option>
-                <option value="product">Product Information</option>
-                <option value="supplier">Supplier Inquiry</option>
-                <option value="customer">Customer Support</option>
-                <option value="partnership">Business Partnership</option>
-                <option value="other">Other</option>
-              </select>
-              <div class="error-message" id="inquiryError"></div>
-            </div>
+          <div class="form-group">
+            <label for="inquiry">Inquiry Type *</label>
+            <select id="inquiry" name="inquiry" required>
+              <option value="">Select an option</option>
+              <option value="product">Product Information</option>
+              <option value="supplier">Supplier Inquiry</option>
+              <option value="customer">Customer Support</option>
+              <option value="partnership">Business Partnership</option>
+              <option value="other">Other</option>
+            </select>
+            <div class="error-message" id="inquiryError"></div>
+          </div>
 
-            <div class="form-group">
-              <label for="message">Message *</label>
-              <textarea id="message" name="message" rows="5" required placeholder="Tell us more about your inquiry..."></textarea>
-              <div class="error-message" id="messageError"></div>
-            </div>
+          <div class="form-group">
+            <label for="message">Message *</label>
+            <textarea id="message" name="message" rows="5" required placeholder="Tell us more about your inquiry..."></textarea>
+            <div class="error-message" id="messageError"></div>
+          </div>
 
-            <!-- hCaptcha Integration -->
-            <div class="form-group">
-              <div class="h-captcha" data-sitekey="50b2fe65-b00b-4b9e-ad62-3ba471098be2"></div>
-              <div class="error-message" id="captchaError"></div>
-            </div>
+          <!-- hCaptcha -->
+          <div class="form-group">
+            <div class="h-captcha" data-sitekey="50b2fe65-b00b-4b9e-ad62-3ba471098be2"></div>
+            <div class="error-message" id="captchaError"></div>
+          </div>
 
-            <!-- Submit Section -->
-            <div class="form-submit">
-              <div id="formSuccess" class="message-success"></div>
-              <div id="formError" class="message-error"></div>
-              <button type="submit" class="btn btn--primary btn--full" id="submitBtn">
-                <span class="btn-text">Send Message</span>
-                <span class="btn-loading" style="display: none;">
-                  <span class="spinner"></span> Sending...
-                </span>
-              </button>
-              <p class="form-note">We typically respond within 24 hours. Your information is kept confidential.</p>
-            </div>
-          </form>
-        </div>
-    </div>
+          <!-- Submit Section -->
+          <div class="form-submit">
+            <div id="formSuccess" class="message-success"></div>
+            <div id="formError" class="message-error"></div>
+            <button type="submit" class="btn btn--primary btn--full" id="submitBtn">
+              <span class="btn-text">Send Message</span>
+              <span class="btn-loading" style="display: none;">
+                <span class="spinner"></span> Sending...
+              </span>
+            </button>
+            <p class="form-note">We typically respond within 24 hours. Your information is kept confidential.</p>
+          </div>
+        </form>
+      </div>
   </section>
 
   <!-- FAQ Section -->
@@ -235,5 +233,7 @@
   <script src="js/form-validation.js"></script>
   <!-- Web3Forms hCaptcha Script -->
   <script src="https://web3forms.com/client/script.js" async defer></script>
+  <script src="js/contact-submit.js" defer></script>
+
 </body>
 </html>
