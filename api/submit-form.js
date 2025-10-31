@@ -15,40 +15,48 @@ export default async function handler(req, res) {
     "h-captcha-response": hCaptchaToken
   } = req.body;
 
-  // Validate required fields
+  // 1️⃣ Validate required fields
   if (!name || !email || !message) {
-    return res.status(400).json({ success: false, message: "Captcha verification failed" });
-    // hCaptcha verification only
-    const hcaptchaSecret = process.env.HCAPTCHA_SECRET;
-    const captchaToken = hCaptchaToken;
-    if (!captchaToken) {
-      return res.status(400).json({ success: false, message: 'Captcha token missing' });
-    }
-    if (!hcaptchaSecret) {
-      return res.status(500).json({ success: false, message: 'hCaptcha secret not configured on server' });
-    }
-    const params = new URLSearchParams({ secret: hcaptchaSecret, response: captchaToken });
-    const verifyRes = await fetch('https://hcaptcha.com/siteverify', { method: 'POST', body: params });
-    const verifyJson = await verifyRes.json();
-    if (!verifyJson.success) {
-      const baseMsg = 'Captcha verification failed';
-      const debug = process.env.NODE_ENV === 'production' ? '' : ` - verify response: ${JSON.stringify(verifyJson)}`;
-      return res.status(400).json({ success: false, message: baseMsg + debug });
-    }
+    return res.status(400).json({ success: false, message: "Name, email, and message are required" });
   }
-  
 
-  // Send the form data to Web3Forms
+  // // 2️⃣ hCaptcha verification
+  // try {
+  //   const hcaptchaSecret = process.env.HCAPTCHA_SECRET;
+  //   if (!hCaptchaToken) {
+  //     return res.status(400).json({ success: false, message: 'Captcha token missing' });
+  //   }
+  //   if (!hcaptchaSecret) {
+  //     return res.status(500).json({ success: false, message: 'hCaptcha secret not configured on server' });
+  //   }
+
+  //   const params = new URLSearchParams({ secret: hcaptchaSecret, response: hCaptchaToken });
+  //   const verifyRes = await fetch('https://hcaptcha.com/siteverify', { method: 'POST', body: params });
+  //   const verifyJson = await verifyRes.json();
+
+  //   if (!verifyJson.success) {
+  //     const debug = process.env.NODE_ENV === 'production' ? '' : ` - verify response: ${JSON.stringify(verifyJson)}`;
+  //     return res.status(400).json({ success: false, message: 'Captcha verification failed' + debug });
+  //   }
+  // } catch (err) {
+  //   console.error("hCaptcha error:", err);
+  //   return res.status(500).json({ success: false, message: "Captcha verification error" });
+  // }
+
+  // 3️⃣ Send the form data to Web3Forms
   try {
     const web3Key = process.env.WEB3FORMS_ACCESS_KEY;
+    if (!web3Key) {
+      return res.status(500).json({ success: false, message: "Web3Forms key not configured on server" });
+    }
 
     const formData = {
       access_key: web3Key,
       subject: "New Contact Form Submission - Skylah LLC",
       name,
-      email,           // Must be 'email' for Web3Forms
-      from_name: name, // Optional: sender name
-      replyto: email,  // Reply-to address
+      email,
+      from_name: name,
+      replyto: email,
       company,
       phone,
       inquiry,
@@ -58,7 +66,7 @@ export default async function handler(req, res) {
     const response = await fetch("https://api.web3forms.com/submit", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(formData),
+      body: JSON.stringify(formData)
     });
 
     const result = await response.json();

@@ -53,14 +53,14 @@ document.addEventListener('DOMContentLoaded', function() {
         document.querySelectorAll('.error-message').forEach(el => el.style.display = 'none');
 
         // Always check hCaptcha (invisible mode: use getResponse)
-        let hCaptchaToken = "";
-        if (window.hcaptcha && typeof window.hcaptcha.getResponse === "function") {
-            hCaptchaToken = window.hcaptcha.getResponse();
-        }
-        if (!hCaptchaToken) {
-            showError('captchaError', 'Please complete the hCaptcha verification (click the checkbox)');
-            isValid = false;
-        }
+        // let hCaptchaToken = "";
+        // if (window.hcaptcha && typeof window.hcaptcha.getResponse === "function") {
+        //     hCaptchaToken = window.hcaptcha.getResponse();
+        // }
+        // if (!hCaptchaToken) {
+        //     showError('captchaError', 'Please complete the hCaptcha verification (click the checkbox)');
+        //     isValid = false;
+        // }
 
         const name = document.getElementById('name').value.trim();
         if (!name) { showError('nameError', 'Please enter your full name'); isValid = false; }
@@ -137,10 +137,10 @@ document.addEventListener('DOMContentLoaded', function() {
             };
 
             // Include hCaptcha token if present
-            if (window.hcaptcha) {
-                const token = window.hcaptcha && window.hcaptcha.getResponse ? window.hcaptcha.getResponse() : "";
-                if (token) payload['h-captcha-response'] = token;
-            }
+            // if (window.hcaptcha) {
+            //     const token = window.hcaptcha && window.hcaptcha.getResponse ? window.hcaptcha.getResponse() : "";
+            //     if (token) payload['h-captcha-response'] = token;
+            // }
 
             const endpoint = '/api/submit-form';
             const response = await fetch(endpoint, {
@@ -175,5 +175,5 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    console.log('Form validation with hCaptcha loaded successfully');
+    // console.log('Form validation with hCaptcha loaded successfully');
 });
