@@ -158,8 +158,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 payload['h-captcha-response'] = hcaptchaInput.value;
             }
 
-            // Client posts to existing Express API route
-            const endpoint = '/submit-form';
+            // Client posts to API route
+            const endpoint = '/api/submit-form';
             console.log('📤 Submitting to API', endpoint);
             const response = await fetch(endpoint, {
                 method: 'POST',

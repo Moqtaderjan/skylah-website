@@ -28,7 +28,7 @@ const sanitize = (v) =>
   typeof v === "string" ? v.replace(/<[^>]*>/g, "").trim().slice(0, 2000) : "";
 
 // POST endpoint for handling form submissions
-app.post("/api/submit-form", async (req, res) => {
+app.post("/api/submit-form.js", async (req, res) => {
   try {
     const body = req.body || {};
     let { name, email, company, phone, inquiry, message, botcheck } = body;

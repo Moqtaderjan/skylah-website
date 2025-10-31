@@ -87,7 +87,7 @@
 
       <!-- Contact Form with hCaptcha -->
       <div class="contact__form-container">
-        <form id="contactForm" class="contact-form">
+        <form id="contactForm" class="contact-form" action="/api/submit-form" method="post">
           <!-- Hidden metadata -->
           <input type="hidden" name="subject" value="New Contact Form Submission - Skylah LLC">
           <input type="hidden" name="from_name" value="Skylah LLC Website">
@@ -136,14 +136,14 @@
 
           <!-- hCaptcha -->
           <div class="form-group">
-            <div class="h-captcha" data-sitekey="50b2fe65-b00b-4b9e-ad62-3ba471098be2"></div>
+            <div class="h-captcha" data-sitekey="ea706786-ee32-4f2e-98c8-4b4ec4be23b8"></div>
             <div class="error-message" id="captchaError"></div>
           </div>
 
-          <!-- Submit Section -->
+          <!-- Success/Error messages -->
           <div class="form-submit">
-            <div id="formSuccess" class="message-success"></div>
-            <div id="formError" class="message-error"></div>
+            <div id="formSuccess" class="form-message-success"></div>
+            <div id="formError" class="form-message-error"></div>
             <button type="submit" class="btn btn--primary btn--full" id="submitBtn">
               <span class="btn-text">Send Message</span>
               <span class="btn-loading" style="display: none;">
@@ -233,7 +233,7 @@
   <script src="js/form-validation.js"></script>
   <!-- Web3Forms hCaptcha Script -->
   <script src="https://web3forms.com/client/script.js" async defer></script>
-  <script src="js/contact-submit.js" defer></script>
-
+  <!-- contact-submit.js removed to avoid duplicate submit handlers; form-validation.js handles submission -->
+  <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
 </body>
 </html>
