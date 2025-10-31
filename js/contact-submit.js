@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function () {
     };
 
     try {
-      const res = await fetch("/api/submit-form", {  // make sure this matches your backend
+  const res = await fetch("/api/submit-form", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData)
