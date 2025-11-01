@@ -1,0 +1,136 @@
+
+
+/* Products Intro */
+.products-intro {
+    padding: 4rem 0;
+    background-color: var(--background-light);
+}
+
+.intro-content {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.intro-content h2 {
+    margin-bottom: 1.5rem;
+    color: var(--text-dark);
+}
+
+.bulk-order-cta {
+    background: var(--background-white);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    margin-top: 2rem;
+    box-shadow: var(--shadow);
+}
+
+/* Product Categories */
+.product-categories {
+    padding: 4rem 0;
+}
+
+.category-detail {
+    margin-bottom: 4rem;
+}
+
+.category-header {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid var(--border-color);
+}
+
+.category-icon.large {
+    font-size: 3rem;
+}
+
+.category-description {
+    margin: 0;
+    color: var(--text-light);
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.product-card {
+    background: var(--background-white);
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    border: 1px solid var(--border-color);
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.product-placeholder {
+    background: var(--border-color);
+    height: 200px;
+    border-radius: var(--border-radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-light);
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+
+.product-card h3 {
+    margin-bottom: 0.5rem;
+    color: var(--text-dark);
+}
+
+.product-specs {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-color);
+    font-size: 0.9rem;
+    color: var(--text-light);
+}
+
+/* Custom Solutions */
+.custom-solutions {
+    padding: 4rem 0;
+    background-color: var(--background-light);
+}
+
+.solutions-content {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.solutions-content h2 {
+    margin-bottom: 1rem;
+    color: var(--text-dark);
+}
+
+.solutions-features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin: 3rem 0;
+}
+
+.solution-feature {
+    background: var(--background-white);
+    padding: 2rem 1rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+}
+
+.solution-feature h3 {
+    margin-bottom: 0.5rem;
+    color: var(--text-dark);
+}

@@ -1,0 +1,120 @@
+
+
+/* Animation after sending successfuly the message*/
+ /* Success Animation Styles */
+ /* .success-message{
+    display: none;
+ }
+ .success-submessage{
+    display: none;
+ } */
+.success-animation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.95);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.success-animation.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.checkmark-circle {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: #10b981;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2rem;
+    animation: scaleIn 0.5s ease-out;
+}
+
+.checkmark {
+    width: 40px;
+    height: 20px;
+    border-left: 4px solid white;
+    border-bottom: 4px solid white;
+    transform: rotate(-45deg);
+    animation: drawCheck 0.5s ease-out 0.3s both;
+}
+
+.success-message {
+    text-align: center;
+    color: #065f46;
+    font-size: 1.5rem;
+    font-weight: 600;
+    animation: fadeInUp 0.5s ease-out 0.6s both;
+    display: none;
+}
+
+.success-submessage {
+    text-align: center;
+    color: #6b7280;
+    margin-top: 1rem;
+    animation: fadeInUp 0.5s ease-out 0.8s both;
+}
+
+@keyframes scaleIn {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    70% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes drawCheck {
+    0% {
+        width: 0;
+        height: 0;
+        opacity: 0;
+    }
+    100% {
+        width: 40px;
+        height: 20px;
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Confetti effect (lightweight) */
+.confetti {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: #ff6b6b;
+    opacity: 0;
+}
+
+.confetti:nth-child(2) { background: #4ecdc4; }
+.confetti:nth-child(3) { background: #ffd166; }
+.confetti:nth-child(4) { background: #06d6a0; }
+.confetti:nth-child(5) { background: #118ab2; }

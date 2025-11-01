@@ -7,7 +7,9 @@
   <title>Contact Us - Skylah LLC | Get in Touch with Our Team</title>
 
   <!-- CSS -->
-  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/general.css">
+  <link rel="stylesheet" href="/css/contact.css">
+  <link rel="stylesheet" href="/css/animation.css">
   <link rel="stylesheet" href="/css/responsive.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
@@ -155,6 +157,20 @@
             </div>
           </form>
         </div>
+        <!--Success Animation-->
+        <div id="successAnimation" class="success-animation">
+          <div class="checkmark-circle">
+            <div class="checkmark"></div>
+          </div>
+          <div class="success-message">Message Sent Successfully!</div>
+          <div class="success-submessage">We’ll get back to you within 24 hours.</div>
+
+          <div class="confetti" style="top:20%; left:20%;"></div>
+          <div class="confetti" style="top:30%; left:80%;"></div>
+          <div class="confetti" style="top:70%; left:10%;"></div>
+          <div class="confetti" style="top:60%; left:90%;"></div>
+          <div class="confetti" style="top:80%; left:50%;"></div>
+        </div>
       </div>
     </div>
   </section>
@@ -191,9 +207,10 @@
   </footer>
 
   <!-- Scripts -->
-  <script src="/js/main.js"></script>
-  <script src="/js/form-validation.js"></script>
-  <script src="/js/contact-form.js"></script>
+  <script type="module" src="js/animations.js"></script>
+  <script type="module" src="js/contact-form.js"></script>
+  <script type="module" src="js/form-validation.js"></script>
+  <script type="module" src="js/main.js"></script>
   <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
 </body>
 </html>
